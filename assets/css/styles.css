@@ -1,0 +1,556 @@
+/* Definición de variables de color */
+:root {
+  --color-body: #f3f5fc; /* Color de fondo del cuerpo */
+  --color-blue: #0a3871; /* Azul principal */
+  --color-blue-placeholder: #0a3871a6; /* Color de marcador de posición azul */
+  --color-blue-footer: #0d4a749f; /* Azul para el pie de página */
+  --color-font-footer: #ebebff; /* Color de fuente para el pie de página */
+  --color-blue-thumb: #619dc0; /* Color del 'thumb' del scrollbar */
+  --color-blue-track: #dde2ff; /* Color de la 'pista' del scrollbar */
+  --color-gray: #495057; /* Gris principal */
+  --color-orange: #fd8d0dcc; /* Naranja */
+  --color-green: #27b361; /* Verde */
+}
+
+/* Estilos del scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Estilos del thumb (parte deslizable) del scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-thumb);
+  border-radius: 15px;
+}
+
+/* Estilos del track (la pista) del scrollbar */
+::-webkit-scrollbar-track {
+  background-color: var(--color-blue-track);
+}
+
+/* Estilos generales de reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+}
+
+/* Estilos del body y html */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del contenedor principal */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr 300px;
+  grid-template-rows: auto 1fr 300px;
+  grid-template-areas:
+    "logo    encryptor     decryptor"
+    "  .     encryptor     decryptor"
+    "  .     encryptor     decryptor"
+    "footer  footer         footer";
+}
+/*******************************header***************/
+
+/* Logo de Alura */
+.logo {
+  grid-area: logo;
+  width: 30px;
+  height: 48px;
+  margin: 20px 100px 0 70px; /* Ajuste de margen para el logo */
+}
+
+/**********************************************************************************************************/
+
+/****************Inicio de todos los componentes de  encriptado/desencriptado******************/
+
+/* Area del textArea y controles para encriptar y desencriptar */
+.encryptor {
+  grid-area: encryptor;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 120px;
+  padding-right: 86px;
+  margin-bottom: 52px;
+  height: calc(
+    100vh - 172px
+  ); /* Cálculo de altura para ocupar el espacio restante */
+}
+
+/* Entrada de texto normal o encriptado */
+#initialText {
+  width: 100%;
+  height: 250px; /* Altura del área de texto */
+  margin-top: 0;
+  margin-left: auto;
+  background-color: transparent;
+  color: var(--color-blue); /* Color de texto */
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  outline: none;
+  resize: none;
+  border: none;
+}
+
+/* Estilo del marcador de posición */
+#initialText::placeholder {
+  color: var(--color-blue-placeholder); /* Color del marcador de posición */
+}
+
+/* Controles */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "ad  ."
+    "controlEn controlDe";
+}
+
+/* Anuncio */
+.advertisement {
+  grid-area: ad;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Estilos de la imagen del anuncio */
+#imgAdd {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* Estilos del texto del anuncio */
+#spanAdd {
+  color: var(--color-gray); /* Color de texto del anuncio */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+button {
+  flex: 1;
+  height: 57px;
+  border-radius: 50px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.305);
+}
+
+/* Estilos del botón de encriptación */
+#encryptor {
+  grid-area: controlEn;
+  background-color: var(
+    --color-blue
+  ); /* Color de fondo del botón de encriptación */
+  color: var(--White, #fff); /* Color de texto del botón de encriptación */
+}
+
+/* Estilos del botón de desencriptación */
+#decryptor {
+  grid-area: controlDe;
+  background: #ceef9c; /* Color de fondo del botón de desencriptación */
+  color: #525252f9; /* Color de texto del botón de desencriptación */
+  margin-left: 24px; /* Ajuste de margen izquierdo */
+}
+/****************Fin de todos los componentes de  encriptado/desencriptado******************/
+
+/**********************************************************************************************************/
+
+/****************Inicio de el area  visual de desencriptado********************************/
+
+/* Área donde se mostrará lo encriptado */
+.decryptor {
+  grid-area: decryptor;
+  margin: 20px 20px 16px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 32px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 3px 5px 1px rgba(91, 91, 91, 0.582);
+  box-sizing: border-box;
+}
+
+.decryptor-texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos del adorno de muñeca */
+#doll {
+  margin: 90px 32px 8px 32px;
+  height: auto;
+  width: 240px;
+  height: 208px;
+}
+
+/* Estilos del texto de error no encontrado */
+.text-noFound {
+  height: auto;
+  color: var(
+    --Gray-gray-500,
+    #343a40
+  ); /* Color de texto del mensaje de error */
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+/* Estilos del texto de entrada */
+.text-enter {
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--Gray-gray-400, #24292e); /* Color de texto de entrada */
+}
+
+.decryptor-elements {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  height: max-content;
+  margin: 32px 32px 32px 32px;
+}
+
+.encrypted-text {
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  height: 300px;
+  outline: none;
+  border: none;
+  margin: 32px;
+  box-sizing: border-box;
+  resize: none;
+  color: var(--Gray-gray-400, #495057);
+}
+
+/* Estilos del texto de los elementos */
+.element-text {
+  flex: 1;
+}
+
+/* Estilos del texto encriptado */
+#encrypted {
+  text-align: center;
+}
+
+/* Estilos de los botones de la interfaz */
+.element-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+/* Estilos del botón de copiar */
+#copy {
+  display: flex;
+  width: 250px;
+  height: 57px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50px;
+  background: #3e94df75;
+  color: rgb(53, 53, 53);
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 1s ease;
+  box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.305);
+}
+
+/* Estilos del botón de copiar cuando está activo */
+#copy.verde {
+  background-color: var(--color-green); /* Cambia el color de fondo a verde */
+  width: 57px; /* Ajuste de ancho */
+}
+
+/* Estilos del icono de marca de verificación */
+#copy.verde::after {
+  align-items: center;
+  content: "\2714"; /* Código de la marca de verificación */
+  display: inline-block;
+  font-size: 25px;
+  color: white;
+  position: relative;
+}
+/**********************************************************************************************************/
+
+/* Pie de página con alguna información */
+footer {
+  height: auto;
+  background: linear-gradient(var(--color-blue-footer), rgb(70, 130, 180));
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.computer-icon,
+.github-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.additional-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  color: var(--color-font-footer);
+  font-family: Inter;
+  font-size: 20px;
+}
+
+span {
+  padding-left: 10px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 15px;
+  text-align: center;
+  width: 50%;
+  color: var(--color-font-footer);
+  text-align: center;
+}
+
+.github-link {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.github-link:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos del color del placeholder al agitar */
+#initialText.shake-orange::placeholder {
+  color: var(--color-orange); /* Color del marcador de posición al agitar */
+  font-style: oblique;
+}
+
+/* Estilos del efecto de agitación */
+.shake-placeholder {
+  animation: shake 0.5s ease infinite;
+}
+
+/* Keyframes para la animación de agitación */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(1px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    margin-right: calc(100px + (50 * (100vw - 1200px) / 200));
+    margin-left: calc(70px + (50 * (100vw - 1200px) / 500));
+  }
+
+  #spanAdd {
+    font-size: calc(16px + (6 * (100vw - 1200px) / 500));
+  }
+
+  .encryptor {
+    padding-right: calc(85px + (40 * (100vw - 1200px) / 200));
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo    "
+      "encryptor   "
+      "decryptor  "
+      "footer  ";
+    gap: 10px;
+    margin: 15px;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  #initialText {
+    height: 150px;
+    width: 100%;
+    margin-top: 0;
+    margin-left: auto;
+    background-color: transparent;
+    color: var(--color-blue);
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 70;
+    line-height: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  .encryptor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 52px;
+    height: calc(100vh - 140px);
+  }
+ #spanAdd {
+   font-size: calc(16px + (3.5 * (100vw - 1200px) / 500));
+ }
+  .decryptor {
+    width: 100%;
+    justify-content: center;
+    padding: 20px 10px 20px 10px;
+  }
+
+  #doll {
+    display: none;
+  }
+
+  .decryptor-elements {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  #encrypted {
+    width: 100%;
+  }
+
+  .encrypted-text {
+    margin: 0px;
+    height: 250px;
+  }
+
+  .element-text {
+    width: 100%;
+  }
+  .element-button {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  .additional-content {
+    padding-bottom: 15px;
+  }
+
+  .github-link {
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #initialText {
+    width: 100%;
+    height: 150px;
+    margin-top: 0;
+    margin-left: auto;
+    background-color: transparent;
+    color: var(--color-blue);
+    /* Color de texto */
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 70;
+    line-height: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  .controls {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "ad  "
+      "controlEn "
+      "controlDe";
+    gap: 20px;
+  }
+
+  #decryptor {
+    margin: 0;
+  }
+
+     .decryptor {
+       margin: 0;
+     }
+  #spanAdd {
+    font-size: calc(16px + (15 * (100vw - 425px) / 600));
+  }
+}

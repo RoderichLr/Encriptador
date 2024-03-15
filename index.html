@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Encriptador de texto</title>
+  </head>
+  <body>
+    <main class="grid-container">
+      <header class="logo"> 
+        <figure>
+          <img  id="logoA" src="assets/img/Logo.png" alt="Logo Alura">
+        </figure>
+      </header>
+      <article class="encryptor">
+        <section>
+          <textarea  id="initialText" class="color" placeholder="Ingrese el texto aquí" oninput="autoResize()"></textarea>
+        </section>
+        <section class="controls">
+         <div id="advert" class="advertisement">
+          <img id="imgAdd" src="assets/img/bi_exclamation-circle-fill.png" alt="Signo de exclamación">
+          <span  id="spanAdd">Solo letras minúsculas y sin acentos</span>
+        </div>
+          <button id="encryptor" onclick="encryptorText()" type="button">Encriptar</button>
+          <button id="decryptor"  onclick="decryptorText()" type="button">Desencriptar</button>
+        </section>
+      </article>
+      <article class="decryptor"> 
+        <section id="decryptorElements" class="decryptor-elements">
+          <div class="element-text">
+            <textarea name="" title="encriptado" class="encrypted-text" id="encrypted" readonly></textarea>
+          </div>
+          <div class="element-button">
+            <button id="copy" onclick="copyText()" type="button">Copiar</button>
+          </div>
+        </section>
+        <section id="decryptorTexts" class="decryptor-texts">
+          <figure>
+            <img id="doll" src="assets/img/Muñeco.png" alt="">
+          </figure>
+          <span class="text-noFound" >Ningún mensaje fue encontrado</span>
+          <span  class="text-enter">Ingresa el texto que desees encriptar o desencriptar.</span>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <section class="footer-container">
+        <figure class="additional-content">
+          <img class="computer-icon" src="assets/img/codigo.png" alt="Icono de computadora">
+          <span>Desarrollando soluciones</span> 
+        </figure>
+        <p class="footer-text">Proyecto de Alura Latam para el curso Oracle Next Education (ONE). Puedes encontrar el proyecto en mi Github.</p>
+        <section class="github-link">
+          <a target="_blank" href="https://github.com/RoderichLr" rel="noreferrer noopener">
+            <img class="github-icon" src="assets/img/octomichi.png" alt="Icono de github">
+          </a>
+        </section>
+      </section>
+    </footer>
+    <script src="src/copyHandler.js"></script>
+    <script src="src/encryptorDecryptor.js"></script>
+    <script src="src/heightTextarea.js"></script>
+  </body>
+</html>
+
+
